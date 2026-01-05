@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrinay | Sound Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --accent-white: #ffffff;
+            --muted-grey: #1a1a1a;
+        }
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+            color: var(--accent-white);
+        }
+        .mono { font-family: 'Space Mono', monospace; }
+        
+        /* Cinematic Grain Texture */
+        .noise::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.08;
+            z-index: 50;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .vignette {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Título Cinemático Minimalista */
+        .brand-reveal {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(to bottom, #fff 10%, rgba(255,255,255,0.1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.05));
+            letter-spacing: 0.25em;
+            line-height: 1;
+            font-weight: 400;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .brand-reveal:hover {
+            letter-spacing: 0.35em;
+            filter: drop-shadow(0 0 25px rgba(255,255,255,0.15));
+            opacity: 0.9;
+        }
+
+        @keyframes fade-in-up {
+          from { 
+            opacity: 0; 
+            transform: translateY(20px);
+            filter: blur(10px);
+          }
+          to { 
+            opacity: 1; 
+            transform: translateY(0);
+            filter: blur(0px);
+          }
+        }
+
+        /* VU Meter Animations */
+        @keyframes vu-1 {
+          0%, 100% { height: 4px; }
+          50% { height: 10px; }
+        }
+        @keyframes vu-2 {
+          0%, 100% { height: 8px; }
+          50% { height: 12px; }
+          75% { height: 4px; }
+        }
+        @keyframes vu-3 {
+          0%, 100% { height: 6px; }
+          30% { height: 12px; }
+          60% { height: 2px; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="noise">
+    <div class="vignette"></div>
+    <div id="root"></div>
+</body>
+</html>
