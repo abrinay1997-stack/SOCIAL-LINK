@@ -32,6 +32,15 @@ export const SOCIAL_LINKS: SocialLink[] = [
     description: 'MATERIAL INÉDITO Y MASTERIZADO'
   },
   {
+    id: 'livesync',
+    title: ' / LIVESYNC PRO',
+    url: 'https://livesyncpro.com/',
+    icon: 'external',
+    color: 'from-neutral-800 to-neutral-900',
+    accentColor: 'border-purple-500/30 group-hover:border-purple-400 text-purple-400',
+    description: 'HERRAMIENTAS PROFESIONALES'
+  },
+  {
     id: 'tiktok',
     title: ' / TIKTOK',
     url: 'https://www.tiktok.com/@abrinay',
